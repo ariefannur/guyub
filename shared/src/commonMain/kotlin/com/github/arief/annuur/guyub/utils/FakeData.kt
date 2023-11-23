@@ -49,4 +49,12 @@ object FakeData {
             "Option 7",
         ), key = "radio_2")
     )
+
+    val sampleAuthForm = listOf(
+        FormField.PhoneNumber("Phone Number", "phone_number", true),
+        FormField.Email("Email", "email", true).apply {
+           message = "Wrong email format"
+        },
+        FormField.Password("Password", "password", true)
+    )
 }

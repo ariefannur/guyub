@@ -11,6 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import com.github.arief.annuur.guyub.form.GDatePicker
+import com.github.arief.annuur.guyub.form.GEmail
+import com.github.arief.annuur.guyub.form.GPassword
+import com.github.arief.annuur.guyub.form.GPhoneNumber
 import com.github.arief.annuur.guyub.form.GRadioButton
 import com.github.arief.annuur.guyub.form.GTextField
 import com.github.arief.annuur.guyub.form.GTextFieldOption
@@ -42,6 +45,10 @@ fun GSingleForm(listData: List<FormField>) {
                     is FormField.RadioButton -> GRadioButton(data = form) {
                         viewModel.checkButton(it, form)
                     }
+
+                    is FormField.Password -> GPassword(data = form)
+                    is FormField.PhoneNumber -> GPhoneNumber(data = form)
+                    is FormField.Email -> GEmail(data = form)
                 }
             }
             item {

@@ -52,4 +52,22 @@ sealed class FormField {
                 initValue()
             }
         }
+
+    data class Password(
+        override val label: String,
+        override val key: String,
+        override val required: Boolean
+    ) : FormField()
+
+    data class PhoneNumber(
+        override val label: String,
+        override val key: String,
+        override val required: Boolean
+    ) : FormField()
+
+    data class Email(
+        override val label: String,
+        override val key: String,
+        override val required: Boolean
+    ) : FormField()
 }
