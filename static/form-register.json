@@ -1,0 +1,32 @@
+[
+  {
+    "type": "email",
+    "label": "Input Email",
+    "required": true,
+    "key": "input_email"
+  },
+  {
+    "type": "phone",
+    "label": "Phone Number",
+    "required": true,
+    "key": "input_phone"
+  },
+  {
+    "type": "password",
+    "label": "Input Password",
+    "required": true,
+    "key": "input_password"
+  },
+  {
+    "type": "re-password",
+    "label": "ReInput Password",
+    "required": true,
+    "key": "re_password"
+  },
+  {
+    "type": "button",
+    "label": "Register",
+    "required": true,
+    "key": "btn_register"
+  }
+]
