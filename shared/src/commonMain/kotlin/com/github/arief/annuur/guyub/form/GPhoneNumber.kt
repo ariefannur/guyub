@@ -45,7 +45,7 @@ fun GPhoneNumber(data: FormField.PhoneNumber) {
                 value = text,
                 onValueChange = {
                     text = it
-                    data.value = it
+                    data.value = textCode + it
                 },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(

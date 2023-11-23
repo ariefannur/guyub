@@ -3,7 +3,7 @@ package com.github.arief.annuur.guyub.utils
 
 
 fun String.checkEmail(): Boolean {
-    return this.matches(Regex(".+@.+\\\\.[a-z]+"))
+    return this.matches(Regex("^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\$"))
 }
 
 fun String.checkPhoneNumber(): Boolean {

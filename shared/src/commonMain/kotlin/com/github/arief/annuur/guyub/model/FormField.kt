@@ -56,6 +56,7 @@ sealed class FormField {
     data class Password(
         override val label: String,
         override val key: String,
+        val type: PasswordType = PasswordType.PASSWORD,
         override val required: Boolean
     ) : FormField()
 

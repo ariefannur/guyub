@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import com.github.arief.annuur.guyub.model.FormField
 
 @Composable
-fun GPassword(data: FormField.Password) {
+fun GPassword(data: FormField.Password, onChecking: ((String) ->Unit)? = null) {
 
     var text by remember { mutableStateOf("") }
     var show by remember { mutableStateOf(false) }
@@ -46,21 +46,22 @@ fun GPassword(data: FormField.Password) {
                 onValueChange = {
                     text = it
                     data.value = it
+                    onChecking?.invoke(it)
                 },
                 label = { Text(data.label) },
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Password
                 ),
-                visualTransformation = if (show) PasswordVisualTransformation() else VisualTransformation.None,
-                isError = text.isEmpty()
+                visualTransformation = if (!show) PasswordVisualTransformation() else VisualTransformation.None,
+                isError = data.isError && text.isNotEmpty()
             )
             IconButton(modifier = Modifier.align(Alignment.CenterEnd), onClick = {
                 show = !show
             }) {
-                Icon(modifier = Modifier.size(16.dp),imageVector = if (!show) Icons.Default.Clear else Icons.Default.Check, contentDescription = null)
+                Icon(modifier = Modifier.size(16.dp),imageVector = if (show) Icons.Default.Clear else Icons.Default.Check, contentDescription = null)
             }
         }
-        if (text.isEmpty() && data.required) {
+        if (data.isError) {
             Text(data.message, Modifier.padding(start = 16.dp, end = 16.dp), color = Color.Red)
         }
     }

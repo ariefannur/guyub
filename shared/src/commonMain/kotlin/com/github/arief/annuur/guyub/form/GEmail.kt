@@ -2,7 +2,6 @@ package com.github.arief.annuur.guyub.form
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -17,7 +16,7 @@ import com.github.arief.annuur.guyub.model.FormField
 import com.github.arief.annuur.guyub.utils.checkEmail
 
 @Composable
-fun GEmail(data: FormField.Email) {
+fun GEmail(data: FormField.Email, validField: ((Boolean) -> Unit)? = null) {
 
     var text by remember { mutableStateOf("") }
 
@@ -28,7 +27,8 @@ fun GEmail(data: FormField.Email) {
             onValueChange = {
                 text = it
                 data.value = it
-                data.isError = !it.checkEmail()
+                println("Check Email: ${it.checkEmail()}")
+                validField?.invoke(!it.checkEmail())
             },
             label = { Text(data.label) },
             isError = text.isEmpty()

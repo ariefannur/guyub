@@ -5,3 +5,8 @@ enum class TextFieldType {
    NOMINAL,
    NUMBER
 }
+
+enum class PasswordType {
+   PASSWORD,
+   CHECK_PASSWORD
+}

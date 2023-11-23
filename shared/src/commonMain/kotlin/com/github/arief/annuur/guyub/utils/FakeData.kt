@@ -1,6 +1,7 @@
 package com.github.arief.annuur.guyub.utils
 
 import com.github.arief.annuur.guyub.model.FormField
+import com.github.arief.annuur.guyub.model.PasswordType
 import com.github.arief.annuur.guyub.model.TextFieldType
 
 object FakeData {
@@ -55,6 +56,7 @@ object FakeData {
         FormField.Email("Email", "email", true).apply {
            message = "Wrong email format"
         },
-        FormField.Password("Password", "password", true)
+        FormField.Password("Password", "password", required = true),
+        FormField.Password("Retype Password", "password", type = PasswordType.CHECK_PASSWORD,required = true)
     )
 }

@@ -21,7 +21,7 @@ import com.github.arief.annuur.guyub.form.ModifierForm
 import com.github.arief.annuur.guyub.model.FormField
 
 @Composable
-fun GSingleForm(listData: List<FormField>) {
+fun GSingleForm(listData: List<FormField>, outputData: (Map<String, String>) -> Unit) {
     Surface(
         modifier = Modifier.fillMaxSize(),
     ) {
@@ -46,14 +46,18 @@ fun GSingleForm(listData: List<FormField>) {
                         viewModel.checkButton(it, form)
                     }
 
-                    is FormField.Password -> GPassword(data = form)
+                    is FormField.Password -> GPassword(data = form) {
+                        viewModel.setPassword(it, form.type)
+                    }
                     is FormField.PhoneNumber -> GPhoneNumber(data = form)
-                    is FormField.Email -> GEmail(data = form)
+                    is FormField.Email -> GEmail(data = form) {
+                        viewModel.checkButton(it, form)
+                    }
                 }
             }
             item {
                 Button(modifier = ModifierForm.fillMaxWidth(), onClick = {
-
+                    outputData.invoke(viewModel.getSubmittedValue())
                 }, enabled = viewModel.enableButton.collectAsState().value) {
                     Text(text = "Submit")
                 }

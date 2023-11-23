@@ -5,11 +5,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.AlertDialog
 import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -51,13 +53,14 @@ fun GTextFieldOption(data: FormField.TextFieldOption, validField: ((Boolean) -> 
                 label = { Text(data.label) },
                 isError = text.isEmpty()
             )
-            Icon(
-                imageVector = Icons.Filled.KeyboardArrowDown,
-                modifier = Modifier.align(Alignment.CenterEnd).padding(end = 8.dp).clickable {
-                    showDialog = true
-                },
-                contentDescription = ""
-            )
+            IconButton(modifier = Modifier.align(Alignment.CenterEnd), onClick = {
+                showDialog = true
+            } ) {
+                Icon(
+                    modifier = Modifier.size(16.dp),
+                    imageVector = Icons.Filled.KeyboardArrowDown, contentDescription = ""
+                )
+            }
         }
         if (text.isEmpty() && data.required)
             Text(data.message, modifier = Modifier.padding(start = 16.dp, end = 16.dp), color = Color.Red)
