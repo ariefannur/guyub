@@ -1,0 +1,20 @@
+[
+  {
+    "type": "email",
+    "label": "Email",
+    "required": true,
+    "key": "input_email"
+  },
+  {
+    "type": "password",
+    "label": "Password",
+    "required": true,
+    "key": "input_password"
+  },
+  {
+    "type": "button",
+    "label": "Login",
+    "required": true,
+    "key": "btn_login"
+  }
+]
