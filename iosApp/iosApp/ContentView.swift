@@ -3,14 +3,13 @@ import shared
 
 struct ContentView: View {
 	var body: some View {
-            ComposeView()
-                    .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
+            ComposeView() // Compose has own keyboard handler
         }
 }
 
 struct ComposeView: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> UIViewController {
-        Platform_iosKt.FormView()
+        Platform_iosKt.SingleFormView(data: FakeData.init().singleFormData)
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}

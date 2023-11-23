@@ -1,6 +1,8 @@
 package com.github.arief.annuur.guyub
 
 import androidx.compose.ui.window.ComposeUIViewController
+import com.github.arief.annuur.guyub.form.group.GSingleForm
+import com.github.arief.annuur.guyub.model.FormField
 import platform.UIKit.UIDevice
 
 class IOSPlatform: Platform {
@@ -9,4 +11,4 @@ class IOSPlatform: Platform {
 
 actual fun getPlatform(): Platform = IOSPlatform()
 
-fun FormView() = ComposeUIViewController { DynamicFormView() }
+fun SingleFormView(data: List<FormField>) = ComposeUIViewController { GSingleForm(data) }
