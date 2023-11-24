@@ -1,5 +1,11 @@
 [
   {
+    "type": "label",
+    "label": "Login Form",
+    "key": "label_login",
+    "label-type": "title"
+  },
+  {
     "type": "email",
     "label": "Email",
     "required": true,
