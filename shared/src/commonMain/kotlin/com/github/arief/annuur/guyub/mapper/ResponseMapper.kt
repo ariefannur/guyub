@@ -9,8 +9,7 @@ fun Map<String, Any>.toFormField(): FormField {
         "label" -> FormField.Label(
             this["label"] as String,
             this["key"] as String,
-            this["required"] as Boolean,
-            type = when(this["type"] as String) {
+            type = when(this["label-type"] as String) {
                 "title" -> LabelType.TITLE
                 "subtitle" -> LabelType.SUBTITLE
                 "body" -> LabelType.BODY

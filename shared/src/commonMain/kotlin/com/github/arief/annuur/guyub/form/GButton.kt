@@ -1,17 +1,17 @@
 package com.github.arief.annuur.guyub.form
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
 import com.github.arief.annuur.guyub.model.FormField
 
 @Composable
 fun GButton(data: FormField.Button, onSubmit: ()-> Unit) {
     Button(
-        modifier = ModifierForm.fillMaxWidth().background(color = MaterialTheme.colors.primary,shape = MaterialTheme.shapes.medium),
+        modifier = ModifierForm.fillMaxWidth().height(48.dp),
         onClick = {
          onSubmit.invoke()
         },

@@ -10,10 +10,10 @@ import com.github.arief.annuur.guyub.model.LabelType
 
 @Composable
 fun GLabel(data: FormField.Label) {
-    Text(modifier = ModifierForm.padding(top = 8.dp, bottom = 8.dp),
+    Text(modifier = ModifierForm,
         text = data.label,
         style = when(data.type) {
-            LabelType.TITLE -> MaterialTheme.typography.h4
+            LabelType.TITLE -> MaterialTheme.typography.h5
             LabelType.SUBTITLE -> MaterialTheme.typography.subtitle1
             LabelType.BODY -> MaterialTheme.typography.body1
             LabelType.CAPTION -> MaterialTheme.typography.caption
