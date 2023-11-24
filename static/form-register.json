@@ -1,5 +1,11 @@
 [
   {
+    "type": "label",
+    "label": "Register Form",
+    "key": "label_register",
+    "label-type": "title"
+  },
+  {
     "type": "email",
     "label": "Input Email",
     "required": true,
