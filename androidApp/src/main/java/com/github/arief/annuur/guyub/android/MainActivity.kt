@@ -13,6 +13,8 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -22,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import com.github.arief.annuur.guyub.android.theme.MyApplicationTheme
 import com.github.arief.annuur.guyub.form.group.GSingleForm
 import com.github.arief.annuur.guyub.utils.FakeData
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -30,6 +33,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             val scope = rememberCoroutineScope()
             val snackBarHostState = remember { SnackbarHostState() }
+            val viewModel = MainViewModel()
+
+            LaunchedEffect(viewModel) {
+                viewModel.getFormLogin()
+            }
+
             MyApplicationTheme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
@@ -39,7 +48,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     Column (modifier = Modifier.padding(it)) {
                         Text(text = "Single Form ", modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 8.dp) ,style = MaterialTheme.typography.titleLarge)
-                        GSingleForm(listData = FakeData.sampleAuthForm) {
+                        GSingleForm(listData = viewModel.listData.collectAsState().value) {
                             scope.launch {
                                 snackBarHostState.showSnackbar(it.toString())
                             }

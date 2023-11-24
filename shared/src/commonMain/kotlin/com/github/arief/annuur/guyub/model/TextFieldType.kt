@@ -10,3 +10,10 @@ enum class PasswordType {
    PASSWORD,
    CHECK_PASSWORD
 }
+
+enum class LabelType {
+   TITLE,
+   SUBTITLE,
+   BODY,
+   CAPTION
+}

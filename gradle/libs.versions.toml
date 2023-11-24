@@ -8,9 +8,9 @@ compose-runtime = "2.6.2"
 compose-navigation = "2.7.5"
 compose-plugin = "1.5.10"
 androidx-activityCompose = "1.8.0"
-ktor = "2.3.5"
 kotlinx-serialization = "1.6.0"
 date-picker = "0.9.4"
+ktor = "2.3.6"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -23,6 +23,12 @@ compose-material3 = { module = "androidx.compose.material3:material3", version.r
 compose-runtime = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "compose-runtime" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
 date-picker = { module = "ca.gosyer:compose-material-dialogs-datetime", version.ref = "date-picker"}
+ktor-client-android = { module = "io.ktor:ktor-client-android", version.ref = "ktor" }
+ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor" }
+kotlinx-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+ktor-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-serialization = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-gson = { module = "io.ktor:ktor-serialization-gson", version.ref = "ktor" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

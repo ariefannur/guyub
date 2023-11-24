@@ -12,6 +12,21 @@ sealed class FormField {
         isError = required
         println("isError : $isError")
     }
+
+    data class Button(
+        override val label: String,
+        override val key: String,
+        override val required: Boolean = false,
+        val enable: Boolean = false
+    ): FormField()
+
+    data class Label(
+        override val label: String,
+        override val key: String,
+        override val required: Boolean = false,
+        val type: LabelType
+    ): FormField()
+
     data class TextField(override val label: String,
                          val type: TextFieldType,
                          override val key: String,

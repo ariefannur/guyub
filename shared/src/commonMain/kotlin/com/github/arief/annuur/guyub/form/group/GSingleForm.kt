@@ -10,8 +10,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import com.github.arief.annuur.guyub.form.GButton
 import com.github.arief.annuur.guyub.form.GDatePicker
 import com.github.arief.annuur.guyub.form.GEmail
+import com.github.arief.annuur.guyub.form.GLabel
 import com.github.arief.annuur.guyub.form.GPassword
 import com.github.arief.annuur.guyub.form.GPhoneNumber
 import com.github.arief.annuur.guyub.form.GRadioButton
@@ -31,6 +33,7 @@ fun GSingleForm(listData: List<FormField>, outputData: (Map<String, String>) -> 
         LazyColumn {
             items(viewModel.datas.value) {form ->
                 when (form) {
+                    is FormField.Label -> GLabel(data = form)
                     is FormField.TextField -> GTextField(data = form) {
                         viewModel.checkButton(it, form)
                     }
@@ -53,15 +56,18 @@ fun GSingleForm(listData: List<FormField>, outputData: (Map<String, String>) -> 
                     is FormField.Email -> GEmail(data = form) {
                         viewModel.checkButton(it, form)
                     }
+                    is FormField.Button -> GButton(data = form) {
+                        outputData.invoke(viewModel.getSubmittedValue())
+                    }
                 }
             }
-            item {
-                Button(modifier = ModifierForm.fillMaxWidth(), onClick = {
-                    outputData.invoke(viewModel.getSubmittedValue())
-                }, enabled = viewModel.enableButton.collectAsState().value) {
-                    Text(text = "Submit")
-                }
-            }
+//            item {
+//                Button(modifier = ModifierForm.fillMaxWidth(), onClick = {
+//                    outputData.invoke(viewModel.getSubmittedValue())
+//                }, enabled = viewModel.enableButton.collectAsState().value) {
+//                    Text(text = "Submit")
+//                }
+//            }
         }
     }
 }
