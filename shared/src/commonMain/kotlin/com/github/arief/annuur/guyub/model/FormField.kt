@@ -40,7 +40,7 @@ sealed class FormField {
     data class TextFieldOption(override val label: String,
                          val options: List<String>,
                          override val key: String,
-                               override val required: Boolean = false
+                         override val required: Boolean = false
     ): FormField() {
         init {
             initValue()
