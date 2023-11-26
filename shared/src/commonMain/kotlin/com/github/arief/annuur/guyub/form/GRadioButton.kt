@@ -15,7 +15,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -38,8 +37,6 @@ fun GRadioButton(data: FormField.RadioButton, validField: ((Boolean) -> Unit)? =
                 val end = if (iterator.hasNext()) iterator.next() else ""
                 list.add(Pair(start, end))
             }
-
-            println(list)
 
             list.forEach {
                 val first = it.first

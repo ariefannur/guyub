@@ -1,6 +1,7 @@
 package com.github.arief.annuur.guyub.utils
 
 import com.github.arief.annuur.guyub.model.FormField
+import com.github.arief.annuur.guyub.model.PasswordType
 import com.github.arief.annuur.guyub.model.TextFieldType
 
 object FakeData {
@@ -47,6 +48,17 @@ object FakeData {
             "Option 5",
             "Option 6",
             "Option 7",
-        ), key = "radio_2")
+        ), key = "radio_2"),
+
+        FormField.Button(label = "Submit", key = "btn", required = true, enable = false)
+    )
+
+    val sampleAuthForm = listOf(
+        FormField.PhoneNumber("Phone Number", "phone_number", true),
+        FormField.Email("Email", "email", true).apply {
+           message = "Wrong email format"
+        },
+        FormField.Password("Password", "password", required = true),
+        FormField.Password("Retype Password", "password", type = PasswordType.CHECK_PASSWORD,required = true)
     )
 }

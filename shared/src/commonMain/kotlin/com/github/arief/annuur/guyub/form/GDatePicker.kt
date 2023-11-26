@@ -5,8 +5,10 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
@@ -51,18 +53,21 @@ fun GDatePicker(
                 value = text,
                 onValueChange = {
                     text = it
+                    data.value = it
                     validField?.invoke(it.isNotEmpty())
                 },
                 label = { Text(data.label) },
                 isError = text.isEmpty()
             )
-            Icon(
-                imageVector = Icons.Filled.DateRange,
-                modifier = Modifier.align(Alignment.CenterEnd).padding(end = 8.dp).clickable {
-                    dialogState.show()
-                },
-                contentDescription = "GDatePicker_${data.label}"
-            )
+            IconButton(modifier = Modifier.align(Alignment.CenterEnd), onClick = {
+                dialogState.show()
+            }) {
+                Icon(
+                    imageVector = Icons.Filled.DateRange,
+                    modifier = Modifier.size(16.dp),
+                    contentDescription = "GDatePicker_${data.label}"
+                )
+            }
         }
         if (text.isEmpty() && data.required) {
             Text(data.message, Modifier.padding(start = 16.dp, end = 16.dp), color = Color.Red)
@@ -74,6 +79,7 @@ fun GDatePicker(
     }) {
         datepicker(colors = DatePickerDefaults.colors(headerBackgroundColor = Color.Red)) {
             text = "${it.dayOfMonth}-${it.monthNumber}-${it.year}"
+            data.value = text
         }
     }
 

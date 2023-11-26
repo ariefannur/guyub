@@ -10,8 +10,22 @@ sealed class FormField {
 
     fun initValue() {
         isError = required
-        println("isError : $isError")
     }
+
+    data class Button(
+        override val label: String,
+        override val key: String,
+        override val required: Boolean = false,
+        val enable: Boolean
+    ): FormField()
+
+    data class Label(
+        override val label: String,
+        override val key: String,
+        override val required: Boolean = false,
+        val type: LabelType
+    ): FormField()
+
     data class TextField(override val label: String,
                          val type: TextFieldType,
                          override val key: String,
@@ -52,4 +66,23 @@ sealed class FormField {
                 initValue()
             }
         }
+
+    data class Password(
+        override val label: String,
+        override val key: String,
+        val type: PasswordType = PasswordType.PASSWORD,
+        override val required: Boolean
+    ) : FormField()
+
+    data class PhoneNumber(
+        override val label: String,
+        override val key: String,
+        override val required: Boolean
+    ) : FormField()
+
+    data class Email(
+        override val label: String,
+        override val key: String,
+        override val required: Boolean
+    ) : FormField()
 }
