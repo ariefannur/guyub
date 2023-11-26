@@ -48,7 +48,9 @@ object FakeData {
             "Option 5",
             "Option 6",
             "Option 7",
-        ), key = "radio_2")
+        ), key = "radio_2"),
+
+        FormField.Button(label = "Submit", key = "btn", required = true, enable = false)
     )
 
     val sampleAuthForm = listOf(

@@ -10,8 +10,7 @@ class MainViewModel: ViewModel() {
 
     val listData = MutableStateFlow(listOf<FormField>())
     suspend fun getFormLogin() {
-        val result = Request.getLoginForm()
-        println("AF result :: $result")
+        val result = Request.getRegisterForm()
         listData.value = result.map { it.toFormField() }
     }
 }

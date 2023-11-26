@@ -17,12 +17,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.github.arief.annuur.guyub.model.FormField
+import com.github.arief.annuur.guyub.utils.checkPhoneNumber
 
 @Composable
-fun GPhoneNumber(data: FormField.PhoneNumber) {
+fun GPhoneNumber(data: FormField.PhoneNumber, validField: ((Boolean) -> Unit)? = null) {
 
     var text by remember { mutableStateOf("") }
     var textCode by remember { mutableStateOf("") }
+    var validCode by remember { mutableStateOf(false) }
+    var validNumber by remember { mutableStateOf(false) }
 
     Column {
         Row (modifier = ModifierForm) {
@@ -32,6 +35,8 @@ fun GPhoneNumber(data: FormField.PhoneNumber) {
                 value = textCode,
                 onValueChange = {
                     textCode = it
+                    validCode = it.isNotEmpty()
+                    validField?.invoke(validCode && validNumber)
                 },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
@@ -46,6 +51,8 @@ fun GPhoneNumber(data: FormField.PhoneNumber) {
                 onValueChange = {
                     text = it
                     data.value = textCode + it
+                    validNumber = data.value.checkPhoneNumber()
+                    validField?.invoke(validCode && validNumber)
                 },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(

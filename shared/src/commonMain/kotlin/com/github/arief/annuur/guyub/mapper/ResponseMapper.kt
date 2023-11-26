@@ -20,6 +20,7 @@ fun Map<String, Any>.toFormField(): FormField {
             this["label"] as String,
             this["key"] as String,
             this["required"] as Boolean,
+            false
         )
         "email" -> FormField.Email(
             this["label"] as String,
@@ -48,6 +49,7 @@ fun Map<String, Any>.toFormField(): FormField {
             this["label"] as String,
             this["key"] as String,
             this["required"] as Boolean,
+            false
         )
     }
 }

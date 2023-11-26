@@ -53,6 +53,7 @@ fun GDatePicker(
                 value = text,
                 onValueChange = {
                     text = it
+                    data.value = it
                     validField?.invoke(it.isNotEmpty())
                 },
                 label = { Text(data.label) },
@@ -78,6 +79,7 @@ fun GDatePicker(
     }) {
         datepicker(colors = DatePickerDefaults.colors(headerBackgroundColor = Color.Red)) {
             text = "${it.dayOfMonth}-${it.monthNumber}-${it.year}"
+            data.value = text
         }
     }
 

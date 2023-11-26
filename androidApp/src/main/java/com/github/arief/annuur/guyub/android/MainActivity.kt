@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.github.arief.annuur.guyub.android.theme.MyApplicationTheme
 import com.github.arief.annuur.guyub.form.group.GSingleForm
+import com.github.arief.annuur.guyub.utils.FakeData
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -41,7 +42,7 @@ class MainActivity : ComponentActivity() {
                     }
                 ) {
                     Column (modifier = Modifier.padding(it)) {
-                        GSingleForm(listData = viewModel.listData.collectAsState().value) {
+                        GSingleForm(listData = FakeData.singleFormData/*viewModel.listData.collectAsState().value*/) {
                             scope.launch {
                                 snackBarHostState.showSnackbar(it.toString())
                             }

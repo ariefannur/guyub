@@ -10,14 +10,13 @@ sealed class FormField {
 
     fun initValue() {
         isError = required
-        println("isError : $isError")
     }
 
     data class Button(
         override val label: String,
         override val key: String,
         override val required: Boolean = false,
-        val enable: Boolean = false
+        val enable: Boolean
     ): FormField()
 
     data class Label(
