@@ -27,7 +27,6 @@ fun GEmail(data: FormField.Email, validField: ((Boolean) -> Unit)? = null) {
             onValueChange = {
                 text = it
                 data.value = it
-                println("Check Email: ${it.checkEmail()}")
                 validField?.invoke(!it.checkEmail())
             },
             label = { Text(data.label) },

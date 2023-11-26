@@ -30,7 +30,6 @@ object Request {
         val response: HttpResponse = client.get(url)
         return if (response.status == HttpStatusCode.OK) {
             val raw = response.bodyAsText()
-            println("AF raw :: $raw")
             val itemType = object : TypeToken<List<Map<String, Any>>>() {}.type
             Gson().fromJson(raw, itemType)
         } else listOf()
