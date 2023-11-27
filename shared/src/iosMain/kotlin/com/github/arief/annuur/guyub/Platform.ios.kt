@@ -11,4 +11,4 @@ class IOSPlatform: Platform {
 
 actual fun getPlatform(): Platform = IOSPlatform()
 
-fun SingleFormView(data: List<FormField>) = ComposeUIViewController { GSingleForm(data) }
+fun SingleFormView(data: List<FormField>, output: (Map<String, String>) -> Unit ) = ComposeUIViewController { GSingleForm(data, output) }

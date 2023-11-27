@@ -37,6 +37,7 @@ kotlin {
                 @OptIn(org.jetbrains.compose.ExperimentalComposeLibrary::class)
                 implementation(compose.components.resources)
                 implementation(libs.date.picker)
+                implementation(libs.image.loader)
             }
         }
 
