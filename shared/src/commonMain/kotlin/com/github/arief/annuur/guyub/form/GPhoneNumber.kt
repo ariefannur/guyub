@@ -28,7 +28,7 @@ fun GPhoneNumber(data: FormField.PhoneNumber, validField: ((Boolean) -> Unit)? =
     var validNumber by remember { mutableStateOf(false) }
 
     Column {
-        Row (modifier = ModifierForm) {
+        Row(modifier = ModifierForm) {
             OutlinedTextField(
                 modifier = Modifier.weight(2f),
                 label = { Text("Code") },

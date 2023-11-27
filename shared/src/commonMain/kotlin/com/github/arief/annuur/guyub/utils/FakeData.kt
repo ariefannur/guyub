@@ -1,12 +1,19 @@
 package com.github.arief.annuur.guyub.utils
 
+import com.github.arief.annuur.guyub.model.BottomNavField
 import com.github.arief.annuur.guyub.model.FormField
+import com.github.arief.annuur.guyub.model.ItemBasic
+import com.github.arief.annuur.guyub.model.ItemFeed
+import com.github.arief.annuur.guyub.model.LayoutField
 import com.github.arief.annuur.guyub.model.PasswordType
 import com.github.arief.annuur.guyub.model.TextFieldType
+import com.github.arief.annuur.guyub.model.UIField
+import com.github.arief.annuur.guyub.model.UIFieldType
+import com.github.arief.annuur.guyub.model.UserField
 
 object FakeData {
 
-    val singleFormData = listOf<FormField>(
+    val singleFormData = listOf(
         FormField.TextField(
             "Input Number",
             TextFieldType.NUMBER,
@@ -60,5 +67,157 @@ object FakeData {
         },
         FormField.Password("Password", "password", required = true),
         FormField.Password("Retype Password", "password", type = PasswordType.CHECK_PASSWORD,required = true)
+    )
+
+
+    val sampleFeed = UIField.Feed(
+        UIFieldType.GRID,
+        listOf(
+            ItemFeed(
+                image = "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f",
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Nature with beatiful "
+            ),
+                ItemFeed(
+                image = "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f",
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Nature with beatiful "
+            ),
+                ItemFeed(
+                image = "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f",
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Nature with beatiful "
+            ),
+                ItemFeed(
+                image = "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f",
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Nature with beatiful "
+            ),
+                ItemFeed(
+                image = "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f",
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Nature with beatiful "
+            ),
+                ItemFeed(
+                image = "https://images.unsplash.com/photo-1417325384643-aac51acc9e5d",
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Beautiful leaf drop "
+            ),
+                ItemFeed(
+                image = "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f",
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Nature with beatiful "
+            )
+        )
+    )
+
+    val sampleBasicList = UIField.Basic(
+        listOf(
+            ItemBasic(
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Notificatoin"
+            ),
+                ItemBasic(
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Notificatoin"
+            ),
+                ItemBasic(
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Notificatoin"
+            ),
+                ItemBasic(
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Notificatoin"
+            ),
+                ItemBasic(
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Notificatoin"
+            ),
+                ItemBasic(
+                userField = UserField(
+                    username = "jhondoe",
+                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                    realName = "Jhon Doe"
+                ),
+                title = "Notificatoin"
+            )
+        )
+    )
+
+
+    val sampleProfile = UIField.Profile(
+        userField = UserField(
+            username = "jhondoe",
+            imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+            realName = "Jhon Doe"
+        ),
+        settings = listOf(
+            "Accounts",
+            "Notification",
+            "Info",
+            "Settings",
+            "Logout",
+        )
+    )
+
+    val tabLayoutData = LayoutField(
+        pages = listOf(
+            sampleFeed,
+            sampleBasicList,
+            sampleProfile
+        ),
+        bottomNav = listOf(
+            BottomNavField("Feed", "Feed"),
+            BottomNavField("Basic", "Basic"),
+            BottomNavField("Profile", "Profile"),
+        )
     )
 }

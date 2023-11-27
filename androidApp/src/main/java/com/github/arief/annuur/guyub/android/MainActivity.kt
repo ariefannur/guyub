@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -19,6 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.github.arief.annuur.guyub.android.theme.MyApplicationTheme
 import com.github.arief.annuur.guyub.form.group.GSingleForm
+import com.github.arief.annuur.guyub.model.UIFieldType
+import com.github.arief.annuur.guyub.ui.GBasicList
+import com.github.arief.annuur.guyub.ui.GFeed
+import com.github.arief.annuur.guyub.ui.GProfile
+import com.github.arief.annuur.guyub.ui.UIAction
+import com.github.arief.annuur.guyub.ui.group.GTabLayout
 import com.github.arief.annuur.guyub.utils.FakeData
 import kotlinx.coroutines.launch
 
@@ -41,17 +48,43 @@ class MainActivity : ComponentActivity() {
                         SnackbarHost(hostState = snackBarHostState)
                     }
                 ) {
-                    Column (modifier = Modifier.padding(it)) {
-                        GSingleForm(listData = FakeData.singleFormData/*viewModel.listData.collectAsState().value*/) {
-                            scope.launch {
-                                snackBarHostState.showSnackbar(it.toString())
+                    Surface(modifier = Modifier.padding(it)) {
+//                        GSingleForm(listData = FakeData.singleFormData/*viewModel.listData.collectAsState().value*/) {
+//                            scope.launch {
+//                                snackBarHostState.showSnackbar(it.toString())
+//                            }
+//                        }
+//                        GProfile(data = FakeData.sampleProfile)
+//                    }
+                        GTabLayout(data = FakeData.tabLayoutData) {
+                            when (it) {
+                                is UIAction.ActionFeed -> {
+                                    scope.launch {
+                                        snackBarHostState.showSnackbar(
+                                            "Click Feed from item ${it.item.title}"
+                                        )
+                                    }
+                                }
+                                is UIAction.ActionProfile -> {
+                                    scope.launch {
+                                            snackBarHostState.showSnackbar(
+                                                "Click Profile from item ${it.item}"
+                                            )
+                                        }
+                                }
+                                is UIAction.ActionBasic -> {
+                                    scope.launch {
+                                        snackBarHostState.showSnackbar(
+                                            "Click Feed from item ${it.item.title}"
+                                        )
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
         }
-
 
     }
 }

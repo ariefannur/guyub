@@ -17,3 +17,9 @@ Guyub is Server side rendering library build dynamic ui and form use by kotlin m
    | 10 | GImagePicker     | image picker           | WIP                                  |
    | 11 | GCameraPicker    | camera                 | WIP                                  |
 2. UI
+   | No | Component  | type            | Parameter             |
+   |----|------------|-----------------|-----------------------|
+   | 1  | GBasicList | basic list      | data: UIField.Basic   |
+   | 2  | GFeed      | feed            | data: UIField.Feed    |
+   | 3  | GProfile   | profile         | data: UIField.Profile |
+   | 4  | GTabLayout | tap layout page | data: LayoutField     |
