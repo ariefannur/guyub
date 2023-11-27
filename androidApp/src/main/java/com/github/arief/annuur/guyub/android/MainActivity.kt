@@ -24,6 +24,7 @@ import com.github.arief.annuur.guyub.model.UIFieldType
 import com.github.arief.annuur.guyub.ui.GBasicList
 import com.github.arief.annuur.guyub.ui.GFeed
 import com.github.arief.annuur.guyub.ui.GProfile
+import com.github.arief.annuur.guyub.ui.UIAction
 import com.github.arief.annuur.guyub.ui.group.GTabLayout
 import com.github.arief.annuur.guyub.utils.FakeData
 import kotlinx.coroutines.launch
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-//            val scope = rememberCoroutineScope()
+            val scope = rememberCoroutineScope()
             val snackBarHostState = remember { SnackbarHostState() }
             val viewModel = MainViewModel()
 
@@ -55,7 +56,31 @@ class MainActivity : ComponentActivity() {
 //                        }
 //                        GProfile(data = FakeData.sampleProfile)
 //                    }
-                        GTabLayout(data = FakeData.tabLayoutData)
+                        GTabLayout(data = FakeData.tabLayoutData) {
+                            when (it) {
+                                is UIAction.ActionFeed -> {
+                                    scope.launch {
+                                        snackBarHostState.showSnackbar(
+                                            "Click Feed from item ${it.item.title}"
+                                        )
+                                    }
+                                }
+                                is UIAction.ActionProfile -> {
+                                    scope.launch {
+                                            snackBarHostState.showSnackbar(
+                                                "Click Profile from item ${it.item}"
+                                            )
+                                        }
+                                }
+                                is UIAction.ActionBasic -> {
+                                    scope.launch {
+                                        snackBarHostState.showSnackbar(
+                                            "Click Feed from item ${it.item.title}"
+                                        )
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

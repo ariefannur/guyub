@@ -1,6 +1,7 @@
 package com.github.arief.annuur.guyub.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,10 +21,12 @@ import com.github.arief.annuur.guyub.model.UIField
 import com.seiko.imageloader.rememberImagePainter
 
 @Composable
-fun GItemList(data: ItemBasic) {
+fun GItemList(data: ItemBasic, onItemClick: ((ItemBasic) -> Unit)? = null) {
     val painterUser = rememberImagePainter(data.userField.imgAvatar)
 
-    Row (modifier = ModifierForm){
+    Row (modifier = ModifierForm.clickable {
+        onItemClick?.invoke(data)
+    }){
         Image(
             painter = painterUser,
             modifier = Modifier.width(32.dp).height(32.dp)

@@ -14,9 +14,10 @@ import com.github.arief.annuur.guyub.model.UIField
 import com.github.arief.annuur.guyub.ui.GBasicList
 import com.github.arief.annuur.guyub.ui.GFeed
 import com.github.arief.annuur.guyub.ui.GProfile
+import com.github.arief.annuur.guyub.ui.UIAction
 
 @Composable
-fun GTabLayout(data: LayoutField) {
+fun GTabLayout(data: LayoutField, onActionLayout: ((UIAction) -> Unit)? = null ) {
 
     var page by remember { mutableStateOf(0) }
     Scaffold (
@@ -28,9 +29,15 @@ fun GTabLayout(data: LayoutField) {
     ) {
         Surface(modifier = Modifier.padding(it)) {
             when (val dataPage = data.pages[page]) {
-                is UIField.Profile -> GProfile(dataPage)
-                is UIField.Basic -> GBasicList(dataPage)
-                is UIField.Feed -> GFeed(dataPage)
+                is UIField.Profile -> GProfile(dataPage) {
+                    onActionLayout?.invoke(UIAction.ActionProfile(it))
+                }
+                is UIField.Basic -> GBasicList(dataPage) {
+                    onActionLayout?.invoke(UIAction.ActionBasic(it))
+                }
+                is UIField.Feed -> GFeed(dataPage) {
+                    onActionLayout?.invoke(UIAction.ActionFeed(it))
+                }
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.github.arief.annuur.guyub.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,11 +23,12 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.github.arief.annuur.guyub.form.ModifierForm
+import com.github.arief.annuur.guyub.model.ItemBasic
 import com.github.arief.annuur.guyub.model.UIField
 import com.seiko.imageloader.rememberImagePainter
 
 @Composable
-fun GProfile(data: UIField.Profile) {
+fun GProfile(data: UIField.Profile,  onItemClick: ((String) -> Unit)? = null) {
 
     val painterUser = rememberImagePainter(data.userField.imgAvatar)
     LazyColumn {
@@ -54,7 +56,9 @@ fun GProfile(data: UIField.Profile) {
         }
 
         items(data.settings) {
-            Column (ModifierForm) {
+            Column (ModifierForm.clickable {
+                onItemClick?.invoke(it)
+            }) {
                 Row {
                     Text(it)
                     Spacer(Modifier.weight(1f))

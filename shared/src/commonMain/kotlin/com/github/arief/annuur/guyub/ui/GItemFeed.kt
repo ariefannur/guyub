@@ -1,6 +1,7 @@
 package com.github.arief.annuur.guyub.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,12 +22,14 @@ import com.github.arief.annuur.guyub.model.ItemFeed
 import com.seiko.imageloader.rememberImagePainter
 
 @Composable
-fun GItemFeed(data: ItemFeed) {
+fun GItemFeed(data: ItemFeed, onItemClick: ((ItemFeed) -> Unit)? = null) {
 
     val painterFeed = rememberImagePainter(data.image)
     val painterUser = rememberImagePainter(data.userField.imgAvatar)
 
-    Column (modifier = ModifierForm) {
+    Column (modifier = ModifierForm.clickable {
+        onItemClick?.invoke(data)
+    }) {
         Image(painter = painterFeed,
             modifier = Modifier.fillMaxWidth().height(140.dp),
             contentScale = ContentScale.FillWidth,

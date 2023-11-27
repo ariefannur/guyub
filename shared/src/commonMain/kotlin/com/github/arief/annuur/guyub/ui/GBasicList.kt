@@ -7,11 +7,13 @@ import com.github.arief.annuur.guyub.model.ItemBasic
 import com.github.arief.annuur.guyub.model.UIField
 
 @Composable
-fun GBasicList(data: UIField.Basic) {
+fun GBasicList(data: UIField.Basic, onItemClick: ((ItemBasic) -> Unit)? = null) {
 
     LazyColumn {
         items(data.data) {
-            GItemList(it)
+            GItemList(it) {
+                onItemClick?.invoke(it)
+            }
         }
     }
 }
