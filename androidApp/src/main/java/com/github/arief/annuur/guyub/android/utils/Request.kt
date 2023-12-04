@@ -10,6 +10,7 @@ import io.ktor.client.statement.HttpResponse
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.HttpStatusCode
 import io.ktor.serialization.gson.gson
+import java.lang.reflect.Type
 
 object Request {
     private val client = HttpClient(CIO) {
@@ -24,6 +25,19 @@ object Request {
 
     suspend fun getRegisterForm(): List<Map<String, Any>>{
         return getForm("${BASE_URL}form-register.json")
+    }
+
+    suspend fun getUI(): Map<String, Any> {
+        return getUIResponse("${BASE_URL}ui-basic.json")
+    }
+
+    private suspend fun getUIResponse(url: String): Map<String, Any> {
+        val response: HttpResponse = client.get(url)
+        return if (response.status == HttpStatusCode.OK) {
+            val raw = response.bodyAsText()
+            val empMapType = object : TypeToken<Map<String, Any>>() {}.type
+            return Gson().fromJson(raw, empMapType)
+        } else mapOf()
     }
 
     private suspend fun getForm(url: String): List<Map<String, Any>> {
