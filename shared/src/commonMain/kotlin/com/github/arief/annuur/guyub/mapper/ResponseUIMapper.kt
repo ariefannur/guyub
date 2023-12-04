@@ -1,5 +1,7 @@
 package com.github.arief.annuur.guyub.mapper
 
+import com.github.arief.annuur.guyub.model.ItemBasic
+import com.github.arief.annuur.guyub.model.ItemFeed
 import com.github.arief.annuur.guyub.model.UIField
 import com.github.arief.annuur.guyub.model.UIFieldType
 import com.github.arief.annuur.guyub.model.UserField
@@ -11,16 +13,48 @@ fun Map<String, Any>.toUIField(): UIField {
                 "grid" -> UIFieldType.GRID
                 else -> UIFieldType.LIST
             },
-            data = listOf()
+            data = (this["data"] as List<Map<String, Any>>).map {
+                it.toFeedField()
+            }
         )
-        "basic" -> UIField.Basic(
-            data = listOf()
-        )
+        "basic" -> {
+            println("BASIC RAW ${this["data"]}")
+            UIField.Basic(
+                data = (this["data"] as List<Map<String, Any>>).map {
+                    it.toBasicField()
+                }
+            )
+        }
         else -> UIField.Profile(
             userField = UserField(
-                "","", ""
+                username = (this["user"] as Map<*, *>) ["username"] as String,
+                imgAvatar = (this["user"] as Map<*, *>) ["avatar"] as String,
+                realName = (this["user"] as Map<*, *>) ["realname"] as String,
             ),
-            settings = listOf()
+            settings = this["data"] as List<String>
         )
     }
+}
+
+fun Map<String, Any>.toBasicField(): ItemBasic {
+    return ItemBasic(
+        title = this["title"] as String,
+        userField = UserField(
+            username = (this["user"] as Map<*, *>) ["username"] as String,
+            imgAvatar = (this["user"] as Map<*, *>) ["avatar"] as String,
+            realName = (this["user"] as Map<*, *>) ["realname"] as String,
+        )
+    )
+}
+
+fun Map<String, Any>.toFeedField(): ItemFeed {
+    return ItemFeed(
+        title = this["title"] as String,
+        image = this["image"] as String,
+        userField = UserField(
+            username = (this["user"] as Map<*, *>) ["username"] as String,
+            imgAvatar = (this["user"] as Map<*, *>) ["avatar"] as String,
+            realName = (this["user"] as Map<*, *>) ["realname"] as String,
+        )
+    )
 }

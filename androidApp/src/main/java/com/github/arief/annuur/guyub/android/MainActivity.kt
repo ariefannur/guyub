@@ -49,39 +49,39 @@ class MainActivity : ComponentActivity() {
                     }
                 ) {
                     Surface(modifier = Modifier.padding(it)) {
-//                        GSingleForm(listData = FakeData.singleFormData/*viewModel.listData.collectAsState().value*/) {
-//                            scope.launch {
-//                                snackBarHostState.showSnackbar(it.toString())
-//                            }
-//                        }
-//                        GProfile(data = FakeData.sampleProfile)
-//                    }
-                        GTabLayout(data = FakeData.tabLayoutData) {
-                            when (it) {
-                                is UIAction.ActionFeed -> {
-                                    scope.launch {
-                                        snackBarHostState.showSnackbar(
-                                            "Click Feed from item ${it.item.title}"
-                                        )
-                                    }
-                                }
-                                is UIAction.ActionProfile -> {
-                                    scope.launch {
-                                            snackBarHostState.showSnackbar(
-                                                "Click Profile from item ${it.item}"
-                                            )
-                                        }
-                                }
-                                is UIAction.ActionBasic -> {
-                                    scope.launch {
-                                        snackBarHostState.showSnackbar(
-                                            "Click Feed from item ${it.item.title}"
-                                        )
-                                    }
-                                }
+                        GSingleForm(listData = viewModel.listData.collectAsState().value) {
+                            scope.launch {
+                                snackBarHostState.showSnackbar(it.toString())
                             }
                         }
+                        //GProfile(data = FakeData.sampleProfile)
                     }
+//                        GTabLayout(data = FakeData.tabLayoutData) {
+//                            when (it) {
+//                                is UIAction.ActionFeed -> {
+//                                    scope.launch {
+//                                        snackBarHostState.showSnackbar(
+//                                            "Click Feed from item ${it.item.title}"
+//                                        )
+//                                    }
+//                                }
+//                                is UIAction.ActionProfile -> {
+//                                    scope.launch {
+//                                            snackBarHostState.showSnackbar(
+//                                                "Click Profile from item ${it.item}"
+//                                            )
+//                                        }
+//                                }
+//                                is UIAction.ActionBasic -> {
+//                                    scope.launch {
+//                                        snackBarHostState.showSnackbar(
+//                                            "Click Feed from item ${it.item.title}"
+//                                        )
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
                 }
             }
         }
