@@ -19,7 +19,7 @@ import com.github.arief.annuur.guyub.model.TextFieldType
 
 @Composable
 fun GTextField(data: FormField.TextField, validField: ((Boolean) -> Unit)? = null) {
-    var text by remember { mutableStateOf("") }
+    var text by remember { mutableStateOf(data.value) }
 
     Column {
         OutlinedTextField(

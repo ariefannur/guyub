@@ -33,7 +33,7 @@ import com.github.arief.annuur.guyub.model.FormField
 
 @Composable
 fun GTextFieldOption(data: FormField.TextFieldOption, validField: ((Boolean) -> Unit)? = null) {
-    var text by remember { mutableStateOf("") }
+    var text by remember { mutableStateOf(data.value) }
     var showDialog by remember { mutableStateOf(false) }
 
     Column {

@@ -30,7 +30,7 @@ import com.github.arief.annuur.guyub.model.FormField
 @Composable
 fun GPassword(data: FormField.Password, onChecking: ((String) ->Unit)? = null) {
 
-    var text by remember { mutableStateOf("") }
+    var text by remember { mutableStateOf(data.value) }
     var show by remember { mutableStateOf(false) }
 
     Column {

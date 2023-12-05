@@ -37,7 +37,7 @@ fun GDatePicker(
     data: FormField.DatePicker,
     validField: ((Boolean) -> Unit)? = null
 ) {
-    var text by remember { mutableStateOf("") }
+    var text by remember { mutableStateOf(data.value) }
     var showDate by remember { mutableStateOf(false) }
     val dialogState = rememberMaterialDialogState()
 
