@@ -17,3 +17,9 @@ enum class LabelType {
    BODY,
    CAPTION
 }
+
+enum class ButtonType {
+   PRIMARY,
+   SECONDARY,
+   TERTIARY
+}

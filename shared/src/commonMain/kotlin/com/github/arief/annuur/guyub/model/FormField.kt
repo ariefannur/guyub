@@ -16,7 +16,8 @@ sealed class FormField {
         override val label: String,
         override val key: String,
         override val required: Boolean = false,
-        val enable: Boolean
+        val enable: Boolean,
+        val buttonType: ButtonType = ButtonType.PRIMARY
     ): FormField()
 
     data class Label(

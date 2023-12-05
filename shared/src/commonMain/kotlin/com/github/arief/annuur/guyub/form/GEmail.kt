@@ -18,7 +18,7 @@ import com.github.arief.annuur.guyub.utils.checkEmail
 @Composable
 fun GEmail(data: FormField.Email, validField: ((Boolean) -> Unit)? = null) {
 
-    var text by remember { mutableStateOf("") }
+    var text by remember { mutableStateOf(data.value) }
 
     Column {
         OutlinedTextField(

@@ -42,7 +42,6 @@ class SingleFormViewModel {
 
 //    update list based on map
         datas.value = mapData.values.toList()
-        val btn = datas.value.find { it is FormField.Button } as FormField.Button
     }
 
     fun setPassword(pass: String, type: PasswordType): Boolean {

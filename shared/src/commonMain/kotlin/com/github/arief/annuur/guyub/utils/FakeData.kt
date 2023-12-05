@@ -4,6 +4,7 @@ import com.github.arief.annuur.guyub.model.BottomNavField
 import com.github.arief.annuur.guyub.model.FormField
 import com.github.arief.annuur.guyub.model.ItemBasic
 import com.github.arief.annuur.guyub.model.ItemFeed
+import com.github.arief.annuur.guyub.model.LabelType
 import com.github.arief.annuur.guyub.model.LayoutField
 import com.github.arief.annuur.guyub.model.PasswordType
 import com.github.arief.annuur.guyub.model.TextFieldType
@@ -218,6 +219,106 @@ object FakeData {
             BottomNavField("Feed", "Feed"),
             BottomNavField("Basic", "Basic"),
             BottomNavField("Profile", "Profile"),
+        )
+    )
+
+    val wizardData = listOf(
+        listOf(
+            FormField.Label(
+                "Identity",
+                "i",
+                type = LabelType.TITLE
+            ),
+            FormField.TextField(
+                "Input Number",
+                TextFieldType.NUMBER,
+                "input_number_1",
+                true
+            ),
+            FormField.TextField(
+                "Input Nominal",
+                TextFieldType.NOMINAL,
+                "input_nominal_1",
+                true
+            ),
+            FormField.TextField(
+                "Input Text",
+                TextFieldType.TEXT,
+                "input_text_1",
+                true
+            ),
+            FormField.TextFieldOption(label = "Option", options = listOf(
+                "Option 1",
+                "Option 2",
+                "Option 3",
+                "Option 4",
+            ), key = "option_1"),
+        ),
+        listOf(
+            FormField.TextField(
+                "Input Number",
+                TextFieldType.NUMBER,
+                "input_num_2",
+                true
+            ),
+            FormField.TextField(
+                "Input Nominal 1",
+                TextFieldType.NOMINAL,
+                "input_nom_2",
+                true
+            ),
+            FormField.TextField(
+                "Input Nominal 1",
+                TextFieldType.NOMINAL,
+                "input_nom_22",
+                true
+            ),
+            FormField.TextField(
+                "Name",
+                TextFieldType.TEXT,
+                "input_name",
+            ),
+            FormField.TextField(
+                "Occupation",
+                TextFieldType.TEXT,
+                "input_ocupation",
+            ),
+            FormField.TextField(
+                "Input Nominal 1",
+                TextFieldType.NOMINAL,
+                "input_nom_222",
+            ),
+            FormField.TextField(
+                "Address",
+                TextFieldType.TEXT,
+                "input_address",
+            ),
+
+        ),
+        listOf(
+            FormField.TextField(
+                "Input Number",
+                TextFieldType.NUMBER,
+                "input_num_3",
+                true
+            ),
+            FormField.TextField(
+                "Input Nominal",
+                TextFieldType.NOMINAL,
+                "input_nom_3",
+                true
+            ),
+            FormField.TextField(
+                "Input Nominal",
+                TextFieldType.NOMINAL,
+                "input_nom_3",
+                true
+            ),
+            FormField.DatePicker(
+                "Input Text",
+                "input_date_3",
+                true
+            ),
         )
     )
 }

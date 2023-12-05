@@ -25,7 +25,7 @@ import com.github.arief.annuur.guyub.model.FormField
 
 @Composable
 fun GRadioButton(data: FormField.RadioButton, validField: ((Boolean) -> Unit)? = null) {
-    var value by remember { mutableStateOf("") }
+    var value by remember { mutableStateOf(data.value) }
 
     Column(modifier = ModifierForm) {
         Text(data.label, fontSize = 17.sp)
