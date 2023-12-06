@@ -9,6 +9,7 @@ class SingleFormViewModel {
     private var mapData = mutableMapOf<String, FormField>()
     private var password = ""
     private var buttonField: FormField.Button? = null
+    var enableButtonState = MutableStateFlow(false)
 
     fun init(list: List<FormField>) {
         datas.value = list
@@ -25,20 +26,23 @@ class SingleFormViewModel {
             mapData[form.key] = it
         }
 
-        buttonField?.let {
-            val enableButton = if (isError) false
-            else {
-                for (i in 0.until(datas.value.size)) {
-                    if (datas.value[i].isError) false
-                    else continue
-                }
-                true
+        val enableButton = if (isError) false
+        else {
+            for (i in 0.until(datas.value.size)) {
+                if (datas.value[i].isError) false
+                else continue
             }
+            true
+        }
+
+        buttonField?.let {
 //            update the button
             val updateButton = mapData[it.key] as FormField.Button
             buttonField = FormField.Button(updateButton.label, updateButton.key, updateButton.required, enableButton)
             mapData[it.key] = buttonField!!
         }
+
+        enableButtonState.value = enableButton
 
 //    update list based on map
         datas.value = mapData.values.toList()
