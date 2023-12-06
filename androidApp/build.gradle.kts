@@ -50,4 +50,5 @@ dependencies {
     implementation(libs.ktor.client.cio)
     implementation(libs.ktor.content.negotiation)
     implementation(libs.ktor.gson)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
 }

@@ -34,7 +34,7 @@ import com.github.arief.annuur.guyub.model.ButtonType
 import com.github.arief.annuur.guyub.model.FormField
 
 @Composable
-fun GWizardForm(dataWizard: List<List<FormField>>) {
+fun GWizardForm(dataWizard: List<List<FormField>>, outputData: (Map<String, String>) -> Unit) {
 
     val viewModel = WizardViewModel()
     viewModel.init(dataWizard)
@@ -128,6 +128,9 @@ fun GWizardForm(dataWizard: List<List<FormField>>) {
                         )
                     ) {
                         if (isNext) viewModel.nextPage()
+                        else {
+                            outputData.invoke(viewModel.getAllValues())
+                        }
                     }
                 }
             }

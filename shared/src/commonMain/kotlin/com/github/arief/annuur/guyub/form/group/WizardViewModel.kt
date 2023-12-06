@@ -97,6 +97,14 @@ class WizardViewModel {
         return values[page]
     }
 
+    fun getAllValues(): Map<String, String> {
+        val map = mutableMapOf<String, String>()
+        values.forEach {
+            map.putAll(it)
+        }
+        return map
+    }
+
     private fun resetValue() {
         val value = getValues(selectedPage.value)
         for (i in 0.until(dataWizard[selectedPage.value].size)) {

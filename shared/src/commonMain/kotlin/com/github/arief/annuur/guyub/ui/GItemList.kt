@@ -22,20 +22,22 @@ import com.seiko.imageloader.rememberImagePainter
 
 @Composable
 fun GItemList(data: ItemBasic, onItemClick: ((ItemBasic) -> Unit)? = null) {
-    val painterUser = rememberImagePainter(data.userField.imgAvatar)
+    val painterUser = rememberImagePainter(data.userField?.imgAvatar.orEmpty())
 
     Row (modifier = ModifierForm.clickable {
         onItemClick?.invoke(data)
     }){
-        Image(
-            painter = painterUser,
-            modifier = Modifier.width(32.dp).height(32.dp)
-                .clip(CircleShape),
-            contentDescription = "avatar"
-        )
+        if (data.userField != null) {
+            Image(
+                painter = painterUser,
+                modifier = Modifier.width(32.dp).height(32.dp)
+                    .clip(CircleShape),
+                contentDescription = "avatar"
+            )
+        }
         Column {
             Text(text = data.title, modifier = Modifier.padding(start = 8.dp), style = MaterialTheme.typography.subtitle1)
-            Text(text = data.userField.username, modifier = Modifier.padding(start = 8.dp), style = MaterialTheme.typography.caption)
+            Text(text = data.userField?.username.orEmpty(), modifier = Modifier.padding(start = 8.dp), style = MaterialTheme.typography.caption)
         }
         Spacer(Modifier.weight(1f))
         Text(text = "4.m")

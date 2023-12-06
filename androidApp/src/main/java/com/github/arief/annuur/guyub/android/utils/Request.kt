@@ -31,6 +31,10 @@ object Request {
         return getUIResponse("${BASE_URL}ui-basic.json")
     }
 
+    suspend fun getWizard(): List<List<Map<String, Any>>> {
+        return getFormWizard("${BASE_URL}form-wizard.json")
+    }
+
     private suspend fun getUIResponse(url: String): Map<String, Any> {
         val response: HttpResponse = client.get(url)
         return if (response.status == HttpStatusCode.OK) {
@@ -45,6 +49,15 @@ object Request {
         return if (response.status == HttpStatusCode.OK) {
             val raw = response.bodyAsText()
             val itemType = object : TypeToken<List<Map<String, Any>>>() {}.type
+            Gson().fromJson(raw, itemType)
+        } else listOf()
+    }
+
+    private suspend fun getFormWizard(url: String): List<List<Map<String, Any>>> {
+        val response: HttpResponse = client.get(url)
+        return if (response.status == HttpStatusCode.OK) {
+            val raw = response.bodyAsText()
+            val itemType = object : TypeToken<List<List<Map<String, Any>>>>() {}.type
             Gson().fromJson(raw, itemType)
         } else listOf()
     }

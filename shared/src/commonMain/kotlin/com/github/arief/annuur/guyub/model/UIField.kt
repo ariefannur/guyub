@@ -18,7 +18,7 @@ sealed class UIField {
 
 
 data class ItemBasic(
-    val userField: UserField,
+    val userField: UserField? = null,
     val title: String
 )
 

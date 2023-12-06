@@ -140,7 +140,7 @@ object FakeData {
         )
     )
 
-    val sampleBasicList = UIField.Basic(
+    private val sampleBasicList = UIField.Basic(
         listOf(
             ItemBasic(
                 userField = UserField(
@@ -202,9 +202,9 @@ object FakeData {
         ),
         settings = listOf(
             "Accounts",
-            "Notification",
-            "Info",
-            "Settings",
+            "Login",
+            "Register",
+            "Wizard",
             "Logout",
         )
     )

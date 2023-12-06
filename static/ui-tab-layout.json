@@ -1,0 +1,93 @@
+{
+  "ui-type": "tab-layout",
+  "navigation": [
+    {"title": "Feed"},
+    {"title": "Basic"},
+    {"title": "Profile"}
+  ],
+  "data": [
+    {
+      "ui-type": "feed",
+      "feed-type": "grid",
+      "data": [
+        {
+          "title": "Sample feed first",
+          "image": "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f",
+          "user": {
+            "username": "jhon_doe",
+            "avatar": "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+            "realname": "Jhon Doe"
+          },
+          "title": "Sample feed second",
+          "image": "https://images.unsplash.com/photo-1417325384643-aac51acc9e5d",
+          "user": {
+            "username": "jhon_doe",
+            "avatar": "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+            "realname": "Jhon Doe"
+          },
+          "title": "Sample feed third",
+          "image": "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f",
+          "user": {
+            "username": "jhon_doe",
+            "avatar": "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+            "realname": "Jhon Doe"
+          },
+          "title": "Sample feed fourth",
+          "image": "https://images.unsplash.com/photo-1416339306562-f3d12fefd36f",
+          "user": {
+            "username": "jhon_doe",
+            "avatar": "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+            "realname": "Jhon Doe"
+          }
+        }
+      ]
+    },
+    {
+      "ui-type": "basic",
+      "data": [
+        {
+          "title": "Sample title",
+          "user": {
+            "username": "jhon_doe",
+            "avatar": "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+            "realname": "Jhon Doe"
+          },
+          "title": "Sample title second",
+          "user": {
+            "username": "jhon_doe",
+            "avatar": "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+            "realname": "Jhon Doe"
+          },
+          "title": "Sample title third",
+          "user": {
+            "username": "jhon_doe",
+            "avatar": "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+            "realname": "Jhon Doe"
+          },
+          "title": "Sample title fourth",
+          "user": {
+            "username": "jhon_doe",
+            "avatar": "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+            "realname": "Jhon Doe"
+          }
+        }
+      ]
+    },
+    {
+      "ui-type": "profile",
+      "user": {
+        "username": "jhon_doe",
+        "avatar": "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+        "realname": "Jhon Doe"
+      },
+      "data": [
+        "Accounts",
+        "Notification",
+        "Info",
+        "Settings",
+        "Logout"
+      ]
+    }
+
+  ]
+}
