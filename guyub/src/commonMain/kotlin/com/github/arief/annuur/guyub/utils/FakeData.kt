@@ -149,7 +149,9 @@ object FakeData {
                     realName = "Jhon Doe"
                 ),
                 title = "Notificatoin"
-            ),
+            ).apply {
+                    optionText = "4.m"
+            },
                 ItemBasic(
                 userField = UserField(
                     username = "jhondoe",
@@ -174,21 +176,23 @@ object FakeData {
                 ),
                 title = "Notificatoin"
             ),
-                ItemBasic(
+            ItemBasic(
                 userField = UserField(
                     username = "jhondoe",
                     imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
                     realName = "Jhon Doe"
                 ),
                 title = "Notificatoin"
+            ).apply {
+                    optionText = "11.m"
+            },
+            ItemBasic(
+            userField = UserField(
+                username = "jhondoe",
+                imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
+                realName = "Jhon Doe"
             ),
-                ItemBasic(
-                userField = UserField(
-                    username = "jhondoe",
-                    imgAvatar = "https://images.unsplash.com/profile-1441298803695-accd94000cac?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&cs=tinysrgb&fit=crop&h=128&w=128&s=32085a077889586df88bfbe406692202",
-                    realName = "Jhon Doe"
-                ),
-                title = "Notificatoin"
+            title = "Notificatoin"
             )
         )
     )
@@ -216,9 +220,9 @@ object FakeData {
             sampleProfile
         ),
         bottomNav = listOf(
-            BottomNavField("Feed", "Feed"),
-            BottomNavField("Basic", "Basic"),
-            BottomNavField("Profile", "Profile"),
+            BottomNavField("home", "Feed"),
+            BottomNavField("menu", "Basic"),
+            BottomNavField("profile", "Profile"),
         )
     )
 

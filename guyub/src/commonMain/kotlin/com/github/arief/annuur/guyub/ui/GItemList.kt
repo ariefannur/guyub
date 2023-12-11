@@ -40,7 +40,7 @@ fun GItemList(data: ItemBasic, onItemClick: ((ItemBasic) -> Unit)? = null) {
             Text(text = data.userField?.username.orEmpty(), modifier = Modifier.padding(start = 8.dp), style = MaterialTheme.typography.caption)
         }
         Spacer(Modifier.weight(1f))
-        Text(text = "4.m")
+        if (data.optionText.isNotEmpty()) Text(text = data.optionText)
 
     }
 }

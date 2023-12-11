@@ -12,13 +12,13 @@ import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.github.arief.annuur.guyub.model.BottomNavField
+import com.github.arief.annuur.guyub.utils.IconsMapper
 
 @Composable
 fun GBottomAppBar(icons: List<BottomNavField>, selected: Int, onPage: ((Int) -> Unit)? = null) {
@@ -33,7 +33,7 @@ fun GBottomAppBar(icons: List<BottomNavField>, selected: Int, onPage: ((Int) -> 
                 .clickable {
                 onPage?.invoke(page)
             }) {
-                Icon(imageVector = Icons.Default.AccountBox, contentDescription = "", tint = color)
+                Icon(imageVector = IconsMapper.getIcon(item.icon), contentDescription = "", tint = color)
                 Text(text = item.title, style = MaterialTheme.typography.button, color = color)
             }
         }

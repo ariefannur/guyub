@@ -20,7 +20,9 @@ sealed class UIField {
 data class ItemBasic(
     val userField: UserField? = null,
     val title: String
-)
+) {
+    var optionText: String = ""
+}
 
 data class ItemFeed(
     val image: String,
