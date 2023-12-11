@@ -2,8 +2,9 @@
 Guyub is Server side rendering library build dynamic ui and form multiplatform client project use with kotlin multiplatform
 
 ### How it's work 
-Convert Json response into specific contract base on form or ui than to be display. 
-[!architecture] (../resource/guyub\flow.png)
+Convert Json response into specific contract base on form or ui than to be display.
+
+![architecture](../main/resource/guyub%20flow.png)
 
 ### Component
 1. Form Field
@@ -40,9 +41,9 @@ Convert Json response into specific contract base on form or ui than to be displ
 
 ### Response Contract
 Here are example json response to construct form or ui
-- [Login] (../static/form-login.json)
-- [Register] (../static/form-register.json)
-- [Wizard] (../static/form-wizard.json)
+- [Login](../main/static/form-login.json)
+- [Register](../main/static/form-register.json)
+- [Wizard](../main/static/form-wizard.json)
 
 ### Mapper
 Mapper is utils extension function to map json response to ui data specific form.
