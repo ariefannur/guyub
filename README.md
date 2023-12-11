@@ -20,13 +20,23 @@ architecture
    | 9  | GEmail           | email                  | label: String                        |
    | 10 | GImagePicker     | image picker           | WIP                                  |
    | 11 | GCameraPicker    | camera                 | WIP                                  |
-2. UI
+2. Group Form
+   | No | Component   | type                        | Parameter                                            |
+   |----|-------------|-----------------------------|------------------------------------------------------|
+   | 1  | GSingleForm | Single form page            | listData: List<FormField>, outputData: Lamda         |
+   | 2  | GWizardForm | Wizard form (multiple page) | dataWizard: List<List<FormField>>, outputData: Lamda |
+3. UI
    | No | Component  | type            | Parameter             |
    |----|------------|-----------------|-----------------------|
    | 1  | GBasicList | basic list      | data: UIField.Basic   |
    | 2  | GFeed      | feed            | data: UIField.Feed    |
    | 3  | GProfile   | profile         | data: UIField.Profile |
    | 4  | GTabLayout | tap layout page | data: LayoutField     |
+4. Group UI
+   | No | Component     | type                  | Parameter                                    |
+   |----|---------------|-----------------------|----------------------------------------------|
+   | 1  | GTabLayout    | Tab layout page       | data: LayoutField, onActionLayout: Lamda     |
+   | 2  | GBottomAppBar | Bottom navigation bar | icons: List<BottomNavField>, selected: Lamda |
 
 ### Response Contract
 

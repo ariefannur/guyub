@@ -1,5 +1,5 @@
 import SwiftUI
-import shared
+import guyub
 
 struct ContentView: View {
 	var body: some View {

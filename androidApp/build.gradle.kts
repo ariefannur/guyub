@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":shared"))
+    implementation(project(":guyub"))
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling)
     implementation(libs.compose.foundation)
@@ -50,5 +50,5 @@ dependencies {
     implementation(libs.ktor.client.cio)
     implementation(libs.ktor.content.negotiation)
     implementation(libs.ktor.gson)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+    implementation(libs.compose.viewmodel)
 }
