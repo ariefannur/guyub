@@ -42,3 +42,4 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = "kotlin" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 compose = { id = "org.jetbrains.compose", version.ref = "compose-plugin"}
+gradle-plugin-publish = { id = "com.gradle.plugin-publish", version = "1.2.0" }
