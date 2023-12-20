@@ -45,7 +45,6 @@ jobs:
               user.id=$USER_ID
               user.email=$USER_EMAIL
               user.name=$USER_USERNAME" >> ./local.properties
-          cat ./local.properties
 
-#      - name: Publish to MavenCentral
-#        run: ./gradlew publish
+      - name: Publish to MavenCentral
+        run: ./gradlew publish
