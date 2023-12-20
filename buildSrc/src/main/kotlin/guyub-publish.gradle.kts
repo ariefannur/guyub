@@ -6,7 +6,6 @@ plugins {
 ext["signing.keyId"] = null
 ext["signing.password"] = null
 ext["signing.secretKey"] = null
-ext["signing.secretKeyRingFile"] = null
 ext["ossrhUsername"] = null
 ext["ossrhPassword"] = null
 ext["gradle.publish.key"] = null
@@ -25,11 +24,8 @@ if (localPropsFile.exists()) {
     ext["signing.keyId"] = System.getenv("SIGNING_KEY_ID")
     ext["signing.password"] = System.getenv("SIGNING_PASSWORD")
     ext["signing.secretKey"] = System.getenv("SIGNING_SECRET_KEY")
-    ext["signing.secretKeyRingFile"] = System.getenv("SIGNING_SECRET_KEY_RING_FILE")
     ext["ossrhUsername"] = System.getenv("OSSRH_USERNAME")
     ext["ossrhPassword"] = System.getenv("OSSRH_PASSWORD")
-    ext["gradle.publish.key"] = System.getenv("GRADLE_PUBLISH_KEY")
-    ext["gradle.publish.secret"] = System.getenv("GRADLE_PUBLISH_SECRET")
     ext["user.id"] = System.getenv("POM_USER_ID")
     ext["user.name"] = System.getenv("POM_USER_NAME")
     ext["user.email"] = System.getenv("POM_USER_EMAIL")
@@ -70,7 +66,7 @@ publishing {
         if (signPublications) signing.sign(this)
 
         groupId = "io.github.ariefannur"
-        version = "1.0.0-Alpha-01"
+        version = "1.0.0-Alpha-02"
 
         pom {
             name.set("guyub")
@@ -98,8 +94,20 @@ publishing {
 
 if (signPublications) {
     signing {
-        getExtraString("signing.secretKey")?.let { secretKey ->
-//            useInMemoryPgpKeys(getExtraString("signing.keyId"), secretKey, getExtraString("signing.password"))
+        if (project.hasProperty("signing.secretKey")) {
+            useGpgCmd()
         }
+        useInMemoryPgpKeys(
+            getExtraString("signing.keyId"),
+            getExtraString("signing.secretKey"),
+            getExtraString("signing.password"),
+        )
+        sign(publishing.publications)
     }
 }
+
+//tasks.withType<AbstractPublishToMaven>().configureEach {
+//    val signingTasks = tasks.withType<Sign>()
+//    mustRunAfter(signingTasks)
+//}
+

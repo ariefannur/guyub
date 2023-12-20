@@ -1,0 +1,51 @@
+name: Publish to maven
+
+on:
+  push:
+    branch:
+      - "publish/*"
+
+jobs:
+  publish:
+    runs-on: macos-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: 17
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Setup env
+        env:
+          OSSRH_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
+          SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+          SIGNING_SECRET_KEY: ${{ secrets.SIGNING_SECRET_KEY }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_USERNAME: ${{ secrets.USER_USERNAME }}
+          USER_ID: ${{ secrets.USER_ID }}
+        run: |
+          echo "ossrhUsername=$OSSRH_USERNAME
+              ssrhPassword=$OSSRH_PASSWORD
+              signing.keyId=$SIGNING_KEY_ID
+              signing.password=$SIGNING_PASSWORD
+              signing.secretKey=$SIGNING_SECRET_KEY
+              user.id=$USER_ID
+              user.email=$USER_EMAIL
+              user.name=$USER_USERNAME" >> ./local.properties
+          cat ./local.properties
+
+#      - name: Publish to MavenCentral
+#        run: ./gradlew publish
