@@ -18,7 +18,6 @@ fun Map<String, Any>.toUIField(): UIField {
             }
         )
         "basic" -> {
-            println("BASIC RAW ${this["data"]}")
             UIField.Basic(
                 data = (this["data"] as List<Map<String, Any>>).map {
                     it.toBasicField()

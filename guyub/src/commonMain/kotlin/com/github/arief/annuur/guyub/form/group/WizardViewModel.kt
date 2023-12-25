@@ -47,8 +47,6 @@ class WizardViewModel {
 
         enableButtonState.value = enableButton
 
-        println("MAP : ${mapData.values.size}")
-
 //    update list based on map
         datas.value = mapData.values.toList()
     }
@@ -83,8 +81,6 @@ class WizardViewModel {
                     it.key to it.value
                 }
             )
-            println("VALUE :: $values")
-
             selectedPage.value += 1
             enableButtonState.value = false
 
