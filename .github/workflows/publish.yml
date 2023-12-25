@@ -46,5 +46,5 @@ jobs:
               user.email=$USER_EMAIL
               user.name=$USER_USERNAME" >> ./local.properties
 
-      - name: Publish to MavenCentral
-        run: ./gradlew publish
+      - name: Publish to Sonatype Repository
+        run: ./gradlew publishAllPublicationsToSonatypeRepository
