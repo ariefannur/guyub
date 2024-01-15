@@ -15,6 +15,8 @@ kotlin {
                 jvmTarget = "1.8"
             }
         }
+
+        publishLibraryVariants("release", "debug")
     }
     
     listOf(
@@ -59,7 +61,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.github.arief.annuur.guyub"
+    namespace = "io.github.arief.annuur.guyub"
     compileSdk = (findProperty("android.targetSdk") as String).toInt()
     defaultConfig {
         minSdk = (findProperty("android.minSdk") as String).toInt()
