@@ -66,11 +66,21 @@ publishing {
                 archiveClassifier.set("javadoc")
                 archiveAppendix.set(this@withType.name)
             })
+        } else if (plugins.hasPlugin("com.android.application") ||
+            plugins.hasPlugin("com.android.library")) {
+            artifact(tasks.register("${name}SourcesJar", Jar::class) {
+                archiveClassifier.set("sources")
+            })
+            artifact(tasks.register("${name}JavadocJar", Jar::class) {
+                archiveClassifier.set("javadoc")
+                archiveAppendix.set(this@withType.name)
+            })
         }
+
         if (signPublications) signing.sign(this)
 
         groupId = "io.github.ariefannur"
-        version = "1.0.0-Alpha-02"
+        version = LibVersions.version
 
         pom {
             name.set("guyub")
@@ -90,6 +100,8 @@ publishing {
                 }
             }
             scm {
+                connection.set("scm:git:git://github.com/ariefannur/guyub.git")
+                developerConnection.set("scm:git:ssh://github.com/ariefannur/guyub.git")
                 url.set("https://github.com/ariefannur/guyub")
             }
         }
@@ -110,8 +122,4 @@ if (signPublications) {
     }
 }
 
-//tasks.withType<AbstractPublishToMaven>().configureEach {
-//    val signingTasks = tasks.withType<Sign>()
-//    mustRunAfter(signingTasks)
-//}
 

@@ -13,6 +13,7 @@ kotlinx-serialization = "1.6.0"
 date-picker = "0.9.4"
 ktor = "2.3.6"
 image-loader = "1.7.1"
+publish = "0.26.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -43,3 +44,4 @@ kotlinCocoapods = { id = "org.jetbrains.kotlin.native.cocoapods", version.ref = 
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
 compose = { id = "org.jetbrains.compose", version.ref = "compose-plugin"}
 gradle-plugin-publish = { id = "com.gradle.plugin-publish", version = "1.2.0" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "publish" }
