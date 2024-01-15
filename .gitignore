@@ -9,3 +9,5 @@ captures
 local.properties
 xcuserdata
 *.gpg
+
+.build/
